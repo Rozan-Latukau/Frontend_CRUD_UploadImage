@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Nav, Navbar, Form, Button, NavDropdown, Card, Row, Col, Image} from "react-bootstrap";
+import { Container, Nav, Navbar, Form, Button, NavDropdown, Card, Row, Col, Image } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -26,14 +26,14 @@ const ListLiga = () => {
 
   return (
     <section>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" className="bg-black">
         <Container >
-          <Navbar.Brand href="#">ZanLeague</Navbar.Brand>
+          <Navbar.Brand href="#" className="text-white fw-bold">ZanLeague</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav className="me-auto" navbarScroll>
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <NavDropdown title="Pilih Liga" id="navbarScrollingDropdown">
+            <Nav className="me-auto " navbarScroll>
+              <Nav.Link href={'/'} className="text-white">Home</Nav.Link>
+              <NavDropdown title={<span className="text-white">Pilih Liga</span>} id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#">LaLiga</NavDropdown.Item>
                 <NavDropdown.Item href="#">Premier League</NavDropdown.Item>
                 <NavDropdown.Item href="#">Seria A</NavDropdown.Item>
@@ -44,7 +44,7 @@ const ListLiga = () => {
               <Form.Control
                 type="search"
                 placeholder="Search"
-                className="me-2"
+                className="me-2 bg-body-secondary"
                 aria-label="Search"
               />
               <Button variant="outline-success">Search</Button>
@@ -53,20 +53,22 @@ const ListLiga = () => {
         </Container>
       </Navbar>
       <Container>
-        <Row className="mt-4">
-          <Link to="/addLiga" className="d-flex justify-content-end text-decoration-none">
-            <Button className="bg-black border-0 mb-3 ">Add League</Button>
+        <div className="w-auto d-flex justify-content-end mt-4">
+          <Link to="/addLiga" className="text-decoration-none">
+            <Button className="bg-black border-0 mb-2">Add League</Button>
           </Link>
+        </div>
+        <Row className="mt-4">
           {ligas.map((liga) => (
             <Col md={3} key={liga.id}>
-              <Card>
+              <Card className="shadow">
                 <Image variant="top" src={liga.url} className="SizeImg mx-auto" />
                 <Card.Body>
                   <Card.Title>{liga.name}</Card.Title>
                   <Card.Text>{liga.leagues}</Card.Text>
                   <div>
                     <Link to={`editLiga/${liga.id}`}>
-                      <Button variant="primary" className="me-2" size="sm">Edit</Button>
+                      <Button variant="warning" className="me-2" size="sm">Edit</Button>
                     </Link>
                     <Button variant="danger" size="sm" onClick={() => deleteLiga(liga.id)}>Delete</Button>
                   </div>

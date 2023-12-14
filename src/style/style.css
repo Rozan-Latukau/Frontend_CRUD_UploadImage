@@ -7,3 +7,10 @@
   max-width: 100%;
   width: 100px;
 }
+
+.dropdown-toggle::after {
+  color: white;
+}
+.dropdown-menu .show {
+  background-color: black;
+}
