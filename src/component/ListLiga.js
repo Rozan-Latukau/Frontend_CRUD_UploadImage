@@ -29,7 +29,7 @@ const ListLiga = () => {
       <Navbar expand="lg" className="bg-black">
         <Container >
           <Navbar.Brand href="#" className="text-white fw-bold">ZanLeague</Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Toggle aria-controls="navbarScroll" className="bg-light" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto " navbarScroll>
               <Nav.Link href={'/'} className="text-white">Home</Nav.Link>
@@ -55,14 +55,14 @@ const ListLiga = () => {
       <Container>
         <div className="w-auto d-flex justify-content-end mt-4">
           <Link to="/addLiga" className="text-decoration-none">
-            <Button className="bg-black border-0 mb-2">Add League</Button>
+            <Button className="bg-black border-0">Add League</Button>
           </Link>
         </div>
         <Row className="mt-4">
           {ligas.map((liga) => (
-            <Col md={3} key={liga.id}>
+            <Col md={3} key={liga.id} className="mt-3">
               <Card className="shadow">
-                <Image variant="top" src={liga.url} className="SizeImg mx-auto" />
+                <Image variant="top" src={liga.url} className="SizeImg mx-auto mt-2" />
                 <Card.Body>
                   <Card.Title>{liga.name}</Card.Title>
                   <Card.Text>{liga.leagues}</Card.Text>
